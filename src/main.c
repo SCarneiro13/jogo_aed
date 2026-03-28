@@ -24,7 +24,7 @@ int main(){
 
     }
     
-    tp_jogador temp;
+    Jogador temp;
     int i = 0;
     while(!filaVazia(&fila)){
         removeFila(&fila, &temp);
