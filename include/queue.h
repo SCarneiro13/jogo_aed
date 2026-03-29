@@ -1,28 +1,20 @@
 #ifndef QUEUE_H
 #define QUEUE_H
+#include "user.h"
+#define MAX 5 // 5 posições porque uma é sacrificada
 
-// Biblioteca de fila para usar com o baralho
+typedef Jogador tp_jogador; //Definindo a struct Jogador como tp_jogador
 
-#include "quests.h"
-#define TRUE 1
-#define FALSE 0
+typedef struct {
+	tp_jogador item[MAX]; // Cada posição do vetor/fila representa um jogador com suas informações 
+	int ini, fim;
+} tp_fila;
 
-void inicializa_fila(tp_baralho *f);
-
-int fila_vazia(tp_baralho *f);
-
+void inicializaFila(tp_fila *f);
+int filaVazia(tp_fila *f);
 int proximo(int pos);
-
-int fila_cheia(tp_baralho *f);
-
-int insere_fila(tp_baralho *f, tp_pergunta e);
-
-int remove_fila(tp_baralho *f, tp_pergunta *e);
-
-void imprime_fila(tp_baralho f);
-
-int tamanho_fila1(tp_baralho *f);
-
-int tamanho_fila2(tp_baralho f);
+int filaCheia(tp_fila *f);
+int insereFila(tp_fila *f, tp_jogador e);
+int removeFila(tp_fila *f, tp_jogador *e);
 
 #endif

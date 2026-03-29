@@ -1,41 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 #include "quests.h"
 #include "stack.h"
-#include "queue.h"
 
-void embaralha_perguntas(tp_baralho *geral){
-    tp_baralho2 baux;
-    inicializa_pilha(&baux);
-    tp_pergunta paux;
-    int min = 1, max = MAX, num;
-    srand(time(NULL)); // Inicializa o gerador com o tempo atual para aleatoriedade.
+void embaralharPerguntas(tp_pergunta *baralho, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3){
+    for (int i = MAX - 1; i > 0; i--) { // Embaralhando o baralho
+        int j = rand() % (i + 1);
 
-    for(int i = 0; i < 5; i++){
-        num = (rand() % (max - min + 1)) + min; // Sorteia um número entre min e max
-        for(int j = 0; j < num; j++){ // Joga uma quantidade aleatoria de cartas do fim para a paux
-            pop(geral, &paux);      
-            push(&baux, paux);
+        tp_pergunta temp = baralho[i];
+        baralho[i] = baralho[j];
+        baralho[j] = temp;
+    }
+
+    for(int i = 0; i < MAX; i++){ // Separando nas pilhas das unidades
+        switch(baralho[i].unidade){
+            case 1:
+                push(uni1, baralho[i]);
+                break;
+            case 2:
+                push(uni2, baralho[i]);
+                break;
+            case 3:
+                push(uni3, baralho[i]);
+                break;
+            default:
+                printf("Error: unidade invalida.");
+                break;
         }
-
-
     }
+
+    return;
 }
-
-tp_baralho baralho[MAX] = {
-    {
-        1, // Unidade.
-        0, // Dificuldade.
-        "Qual o maior time do mundo?", // Pergunta.
-        {"Palmeiras", "Flamengo", "BAHEA", "Santos", "São Paulo"}, // Alternativas.
-        2 // Indice da resposta certa em alternativas.
-    },
-    {
-        1,
-        0,
-        "Qual o menor time da historia?",
-        {"Vicetoria", "Remo", "Jacuipense", "Vasco", "Outro"},
-        0
-    }
-};

@@ -1,31 +1,27 @@
 #ifndef STACK_H
 #define STACK_H
 
-// Biblioteca de pilha para usar com o baralho
-
 #include "quests.h"
-#define TRUE 1
-#define FALSE 0
-	
-typedef struct{
-	int topo;
-	tp_pergunta item[MAX];
-} tp_baralho2;
 
-void inicializa_pilha(tp_baralho2 *p);
+/*BIBLIOTECA QUE FAZ UM OBJETO DO TIPO BARALHO SE COMPORTAR COMO UMA PILHA E REALIZAR OPERAÇÕES DE UMA PILHA*/
 
-int pilha_vazia(tp_baralho2 *p);
+#define tp_pilha tp_baralho
+#define tp_item tp_pergunta
 
-int pilha_cheia(tp_baralho2 *p);
+void inicializa_pilha(tp_pilha *p);
 
-int push(tp_baralho2 *p, tp_pergunta e);
+int pilha_vazia(tp_pilha *p);
 
-int pop(tp_baralho2 *p, tp_pergunta *e);
+int pilha_cheia(tp_pilha *p);
 
-int top(tp_baralho2 *p, tp_pergunta *e);
+int push(tp_pilha *p, tp_item e);
 
-void imprime_pilha(tp_pergunta p);
+int pop(tp_pilha *p, tp_item *e);
 
-int altura_pilha(tp_baralho2 *p);
+int top(tp_pilha *p, tp_item *e);
+
+void imprime_pilha(tp_pilha p);
+
+int altura_pilha(tp_pilha *p);
 
 #endif

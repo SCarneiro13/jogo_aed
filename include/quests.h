@@ -1,7 +1,7 @@
 #ifndef QUESTS_H
 #define QUESTS_H
 
-#define MAX 28
+#define MAX 27
 
 // A pergunta deve ser relacionada com sua unidade e ter um nível de dificuldade.
 
@@ -16,11 +16,13 @@ typedef struct{
 // Um baralho que é basicamente uma fila de perguntas.
 
 typedef struct{
-    tp_pergunta baralho[MAX]; // serão 27 perguntas no total -> 9 para cada unidade, divididas em 3 faceis, 3 medias, 3 dificeis.
-    int ini, fim;
+    tp_pergunta pergunta[MAX/3];
+    int topo;
 } tp_baralho;
 
-void embaralha_perguntas(tp_baralho *geral);
+
+
+void embaralharPerguntas(tp_pergunta *baralho, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3); // Função para embaralhar.
 
 
 #endif
