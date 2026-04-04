@@ -5,7 +5,7 @@
 // Cadastra os nomes dos jogadores
 void cadastrarJogador(Jogador *j){
     printf("Nome do jogador: ");
-    scanf(" %[^\n]s", j->nick);
+    scanf(" %[^\n]", j->nick);
 }
 
 // Inicializa os dados do jogador

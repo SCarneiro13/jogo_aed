@@ -8,8 +8,8 @@
 typedef struct{
     int unidade; // Unidade da pergunta.
     int dificuldade; // Nivel de dificuldade (De 0 a 2).
-    char pergunta[100]; // A pergunta.
-    char alternativas[5][50]; // Alternativas -> 5 alternativas de 50 caracteres.
+    char pergunta[500]; // A pergunta.
+    char alternativas[5][100]; // Alternativas -> 5 alternativas de 100 caracteres.
     int resposta; // Resposta correta (Indice de alternativas, vai de 0 a 4).
 } tp_pergunta;
 
@@ -22,7 +22,7 @@ typedef struct{
 
 
 
-void embaralharPerguntas(tp_pergunta *baralho, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3); // Função para embaralhar.
+void embaralharPerguntas(tp_pergunta *baralho, int num_questions, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3); // Função para embaralhar.
 
 
 #endif

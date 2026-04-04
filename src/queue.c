@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "queue.h"
 
 void inicializaFila(tp_fila *f){
