@@ -1,12 +1,12 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 #include "user.h"
-#define MAX 5 // 5 posições porque uma é sacrificada
+#define MAX_FILA 5 // 5 posições porque uma é sacrificada
 
 typedef Jogador tp_jogador; //Definindo a struct Jogador como tp_jogador
 
 typedef struct {
-	tp_jogador item[MAX]; // Cada posição do vetor/fila representa um jogador com suas informações 
+	tp_jogador item[MAX_FILA]; // Cada posição do vetor/fila representa um jogador com suas informações
 	int ini, fim;
 } tp_fila;
 

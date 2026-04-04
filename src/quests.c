@@ -6,7 +6,7 @@
 #include "stack.h"
 
 void embaralharPerguntas(tp_pergunta *baralho, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3){
-    for (int i = MAX - 1; i > 0; i--) { // Embaralhando o baralho
+    for (int i = MAX_PERGUNTAS - 1; i > 0; i--) { // Embaralhando o baralho
         int j = rand() % (i + 1);
 
         tp_pergunta temp = baralho[i];
@@ -14,7 +14,9 @@ void embaralharPerguntas(tp_pergunta *baralho, tp_baralho *uni1, tp_baralho *uni
         baralho[j] = temp;
     }
 
-    for(int i = 0; i < MAX; i++){ // Separando nas pilhas das unidades
+
+
+    for(int i = 0; i < MAX_PERGUNTAS; i++){ // Separando nas pilhas das unidades
         switch(baralho[i].unidade){
             case 1:
                 push(uni1, baralho[i]);

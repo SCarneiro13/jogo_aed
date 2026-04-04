@@ -1,10 +1,11 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Iinclude
 
-SRC = src/main.c src/funcoes.c
+SRC = $(wildcard src/*.c)
 OUT = build/programa
 
 all:
+	if not exist build mkdir build
 	$(CC) $(SRC) $(CFLAGS) -o $(OUT)
 
 run: all

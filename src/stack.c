@@ -12,7 +12,7 @@ int pilha_vazia(tp_pilha *p){
 }
 
 int pilha_cheia(tp_pilha *p){
-	if(p->topo == MAX-1){return 1;}
+	if(p->topo == (MAX_PERGUNTAS/3)-1){return 1;}
 	return 0;
 }
 
@@ -41,7 +41,7 @@ void imprime_pilha(tp_pilha p){
 	printf("\n");
 	while(!pilha_vazia(&p)){
 		pop(&p, &e);
-		printf("%d\n", e);
+		printf("%s\n", e.pergunta);
 	}
 }
 

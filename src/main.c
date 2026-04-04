@@ -15,7 +15,7 @@ int main(){
 
 /*PREPARANDO BARALHOS DE CADA UNIDADE*/
 
-    tp_pergunta baralho[MAX] = { // Baralho com as perguntas.
+    tp_pergunta baralho[MAX_PERGUNTAS] = { // Baralho com as perguntas.
     {
         1, // Unidade.
         0, // Dificuldade.
@@ -32,12 +32,12 @@ int main(){
     }
 };
 
-tp_baralho pilha_unidade1[MAX/3], pilha_unidade2[MAX/3], pilha_unidade3[MAX/3]; // Baralho de cada unidade
+tp_baralho pilha_unidade1, pilha_unidade2, pilha_unidade3; // Baralho de cada unidade
 inicializa_pilha(&pilha_unidade1);
 inicializa_pilha(&pilha_unidade2);
 inicializa_pilha(&pilha_unidade3);
 
-embaralha_perguntas(&baralho, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3); // Função para embaralhar, está definida em quests.h e codada em quests.c
+embaralharPerguntas(baralho, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3); // Função para embaralhar, está definida em quests.h e codada em quests.c
 
 /*PREPARANDO PARA RECEBER USUARIOS*/
 
