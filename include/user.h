@@ -1,20 +1,22 @@
 #ifndef USER_H
 #define USER_H
 
+#include "space.h"
+
 typedef struct{
     int dificil;
     int medio;
     int facil;
-} Acertos;
+} tp_acertos;
 
 typedef struct{
     char nick[30]; // Nome do usuario
-    int casaAtual;
-    Acertos acertos;
+    tp_space casaAtual;
+    tp_acertos acertos;
     int erros;
-} Jogador;
+} tp_jogador;
 
-void cadastrarJogador(Jogador *j);
-void inicializarJogador(Jogador *j);
+void cadastrarJogador(tp_jogador *j);
+void inicializarJogador(tp_jogador *j);
 
 #endif

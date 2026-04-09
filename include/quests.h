@@ -3,6 +3,9 @@
 
 #define MAX_PERGUNTAS 27
 
+#include "space.h"
+#include "user.h"
+
 // A pergunta deve ser relacionada com sua unidade e ter um nível de dificuldade.
 
 typedef struct{
@@ -24,5 +27,8 @@ typedef struct{
 
 void embaralharPerguntas(tp_pergunta *baralho, int num_questions, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3); // Função para embaralhar.
 
+void preparandoPergunta(tp_jogador *jogador, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3); // Função para preparar a pergunta.
+
+int fazerPergunta(tp_baralho *uni); // Função para realizar a pergunta.
 
 #endif

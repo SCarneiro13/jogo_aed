@@ -9,7 +9,7 @@ all:
 	$(CC) $(SRC) $(CFLAGS) -o $(OUT)
 
 run: all
-	./$(OUT)
+	$(OUT).exe
 
 clean:
 	rm -f $(OUT)
