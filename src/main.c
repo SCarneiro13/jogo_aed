@@ -42,8 +42,6 @@ inicializaFila(&fila);
 
 printf("BEM VINDO AO JOGO!\n\n");
 
-tp_fila fila;
-inicializaFila(&fila);
 criarJogadores(&fila);
 
 
