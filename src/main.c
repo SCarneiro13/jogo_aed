@@ -7,6 +7,7 @@
 #include "queue.h"
 #include "user.h"
 #include "baralho.h"
+#include "criarJogadores.h"
 
 int main(){
 
@@ -41,21 +42,10 @@ inicializaFila(&fila);
 
 printf("BEM VINDO AO JOGO!\n\n");
 
-do {
-        printf("Quantos jogadores (2 a 4): ");
-        scanf("%d", &qtdJog);
-    } while(qtdJog < 2 || qtdJog > 4);
+tp_fila fila;
+inicializaFila(&fila);
+criarJogadores(&fila);
 
-    for(int i = 0; i < qtdJog; i++){
-        tp_jogador j;
-        
-        printf("\n---JOGADOR %d---\n", i+1);
-
-        cadastrarJogador(&j);
-        inicializarJogador(&j);
-
-        insereFila(&fila, j);
-    }
 
     while(!pilha_vazia(&pilha_unidade1)){
         tp_jogador jogador;
