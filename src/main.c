@@ -43,6 +43,7 @@ inicializaFila(&fila);
 printf("BEM VINDO AO JOGO!\n\n");
 
 criarJogadores(&fila);
+/*CADASTRANDO JOGADORES*/
 
 
     while(!pilha_vazia(&pilha_unidade1)){
