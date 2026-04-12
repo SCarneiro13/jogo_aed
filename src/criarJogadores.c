@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "criarJogadores.h"
-#include "queue.h"   // ou onde estiver tp_fila
-#include "user.h"    // ou onde estiver tp_jogador
+#include "queue.h"
+#include "user.h"
 
 void criarJogadores(tp_fila *fila){
     int qtdJog;
