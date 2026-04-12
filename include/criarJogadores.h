@@ -1,3 +1,6 @@
+#ifndef criarJogadores_h
+#define criarJogadores_h
+
 void criarJogadores(tp_fila *fila){
     int qtdJog;
 
