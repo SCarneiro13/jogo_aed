@@ -67,6 +67,27 @@ tp_pergunta baralho[MAX_PERGUNTAS] = { // Baralho com as perguntas.
     {"Pilhas nao armazenam caracteres", "A ordem dos elementos e invertida ao retornar da pilha", "A fila nao pode mais ser acessada", "Necessidade obrigatoria de alocacao dinamica", "O topo da pilha representa o primeiro elemento inserido"},
     1 // b
 }
+{
+    1, // Dificuldade: Fácil
+    3, // Assunto: Alocação Dinâmica e Estática
+    "Sobre a alocação de memória em C, qual a principal diferença entre a alocação estática (vetores comuns) e a dinâmica (malloc)?",
+    {"A estática ocorre em tempo de execução, a dinâmica em tempo de compilação", "A estática é feita na Stack, a dinâmica na Heap", "A dinâmica permite definir o tamanho da memória durante a execução do programa", "A memória alocada estaticamente deve ser liberada com free()", "Vetores estáticos não possuem tamanho fixo"},
+    2 // c
+},
+{
+    1, // Dificuldade: Média
+    4, // Assunto: Listas Encadeadas
+    "Em uma lista simplesmente encadeada, para remover o primeiro nó da lista (denotado por 'L'), qual a sequência lógica correta?",
+    {"L = L->prox; free(L);", "tp_no *aux = L; L = L->prox; free(aux);", "free(L); L = L->prox;", "L->prox = NULL; free(L);", "tp_no *aux = L->prox; free(L); L = aux->prox;"},
+    1 // b
+},
+{
+    1, // Dificuldade: Difícil
+    4, // Assunto: Listas Encadeadas e Ponteiros
+    "Considere uma lista encadeada onde cada nó tem um ponteiro 'prox'. O que acontece se executarmos 'atual->prox = atual->prox->prox' em uma lista com 3 elementos, sendo 'atual' o primeiro elemento?",
+    {"O segundo elemento é removido da encadeação, mas permanece na memória (gera 'memory leak' se não houver outro ponteiro)", "A lista é invertida completamente", "Ocorre um erro de segmentação (Segmentation Fault) obrigatoriamente", "O primeiro elemento passa a apontar para si mesmo", "O terceiro elemento é deletado da memória automaticamente"},
+    0 // a
+}
 };
 
 #endif
