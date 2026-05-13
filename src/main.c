@@ -11,3 +11,26 @@ int main(){
 
     return 0;
 }
+
+int dado;
+tp_jogador jogadorAtual;
+
+while(1){
+
+    removerFila(&fila, &jogadorAtual);
+
+    printf("\nVez de %s\n", jogadorAtual.nome);
+
+    dado = rand() % 6 + 1;
+
+    printf("Dado: %d\n", dado);
+
+    moverJogador(&jogadorAtual, dado);
+
+    if(jogadorAtual.posicao >= 30){
+        printf("\n%s venceu o jogo!\n", jogadorAtual.nome);
+        break;
+    }
+
+    inserirFila(&fila, jogadorAtual);
+}
