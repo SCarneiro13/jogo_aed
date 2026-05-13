@@ -19,4 +19,9 @@ typedef struct{
 void cadastrarJogador(tp_jogador *j);
 void inicializarJogador(tp_jogador *j);
 
+typedef struct{
+    char nome[50];
+    int posicao;
+} tp_jogador;
+
 #endif
