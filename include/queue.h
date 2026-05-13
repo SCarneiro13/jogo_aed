@@ -15,4 +15,8 @@ int filaCheia(tp_fila *f);
 int insereFila(tp_fila *f, tp_jogador e);
 int removeFila(tp_fila *f, tp_jogador *e);
 
+void inicializarJogador(tp_jogador *j){
+    j->posicao = 0;
+}
+
 #endif
