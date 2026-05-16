@@ -87,7 +87,45 @@ tp_pergunta baralho[MAX_PERGUNTAS] = { // Baralho com as perguntas.
     "Considere uma lista encadeada onde cada nó tem um ponteiro 'prox'. O que acontece se executarmos 'atual->prox = atual->prox->prox' em uma lista com 3 elementos, sendo 'atual' o primeiro elemento?",
     {"O segundo elemento é removido da encadeação, mas permanece na memória (gera 'memory leak' se não houver outro ponteiro)", "A lista é invertida completamente", "Ocorre um erro de segmentação (Segmentation Fault) obrigatoriamente", "O primeiro elemento passa a apontar para si mesmo", "O terceiro elemento é deletado da memória automaticamente"},
     0 // a
+},
+{
+    2,
+    1,
+    "Sobre o algoritmo Quick Sort, qual situação leva ao pior caso de desempenho quando o pivô escolhido é sempre o primeiro elemento?",
+    {"Vetor com elementos aleatórios", "Vetor parcialmente ordenado", "Vetor já ordenado", "Vetor com números negativos", "Vetor com tamanho par"},
+    2 // c
+},
+{
+    2,
+    2,
+    "Sobre algoritmos de ordenação estáveis, qual alternativa descreve corretamente sua principal característica?",
+    {"Executam sempre em O(n log n)", "Mantêm a ordem relativa de elementos com valores iguais", "Utilizam apenas estruturas lineares", "Não realizam trocas de elementos", "Funcionam apenas com vetores ordenados"},
+    1 // b
+},
+{
+    2,
+    3,
+    "Considere um Merge Sort aplicado em um vetor de tamanho n. Qual é a principal razão para sua complexidade ser O(n log n)?",
+    {"Porque o vetor é percorrido apenas uma vez", "Porque cada divisão elimina metade dos elementos definitivamente", "Porque o algoritmo divide o vetor em log n níveis e realiza O(n) operações em cada nível", "Porque o algoritmo utiliza apenas trocas adjacentes", "Porque o Merge Sort evita comparações entre elementos"},
+    2 // c
 }
+2,
+1,
+"Em uma estrutura de dados do tipo Fila implementada por meio de uma lista encadeada simples, em qual extremidade devem ocorrer as inserções e as remoções para garantir uma eficiência de tempo constante O(1)?",
+{"As inserções ocorrem no início da lista e as remoções ocorrem no fim da lista", "As inserções ocorrem no fim da lista e as remoções ocorrem no início da lista", "Tanto as inserções quanto as remoções devem ocorrer no início da lista", "Tanto as inserções quanto as remoções devem ocorrer no fim da lista", "As inserções e remoções podem ser feitas em qualquer extremidade aleatoriamente"},
+1 // b
+
+2,
+2,
+"O algoritmo de busca binária possui uma alta eficiência computacional. Qual é a pré-condição obrigatória que a estrutura de dados deve atender para que este algoritmo funcione corretamente, e qual é a sua complexidade de tempo no pior caso?",
+{"Os dados devem estar indexados em posições contíguas e a complexidade é O(n log n)", "Os dados devem estar indexados e a complexidade de pior caso é O(n)", "Os dados devem estar obrigatoriamente ordenados e a complexidade de pior caso é O(log n)", "Os dados podem estar em qualquer ordem e a complexidade é O(log n)", "Os dados devem estar estruturados em uma árvore binária e a complexidade é O(n^2)"},
+2 // c
+
+2,
+3,
+"Considere que você deseja aplicar a lógica teórica da busca binária para encontrar um elemento em uma lista simplesmente encadeada (linear e não indexada) que já se encontra perfeitamente ordenada. Qual é a complexidade de tempo no pior caso para realizar essa busca?",
+{"A complexidade será O(log n), pois a lógica de divisões sucessivas da busca binária é mantida intacta", "A complexidade será O(n), pois o acesso ao elemento central a cada etapa exige o percorrimento sequencial dos nós", "A complexidade será O(n log n), devido à multiplicação do fator de divisão pelo tamanho total da lista encadeada", "A complexidade será O(1), porque a ordenação perfeita anula a necessidade de saltos na estrutura de nós", "A operação é impossível de ser calculada, gerando um erro de estouro de pilha (stack overflow)"},
+1 // b
 };
 
 #endif
