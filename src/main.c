@@ -1,34 +1,61 @@
 #include <stdio.h>
-#include "fila.h"
-#include "usuario.h"
+#include <stdlib.h>
+#include <time.h>
 
-int main(){
-    int qtdJog;
+#include "quests.h"
+#include "stack.h"
+#include "queue.h"
+#include "user.h"
+#include "baralho.h"
+#include "criarJogadores.h"
+
+int main() {
+    srand(time(NULL));
+
+    // 1. INICIALIZAÇÃO DA FILA E VARIÁVEIS
     tp_fila fila;
-    inicializaFila(&fila);
+    inicializaFila(&fila); 
 
-     do {
-        printf("Quantos jogadores (2 a 4): ");
-        scanf("%d", &qtdJog);
-    } while(qtdJog < 2 || qtdJog > 4);
+    // 2. PREPARANDO BARALHOS
+    tp_baralho pilha_unidade1, pilha_unidade2, pilha_unidade3;
+    inicializa_pilha(&pilha_unidade1);
+    inicializa_pilha(&pilha_unidade2);
+    inicializa_pilha(&pilha_unidade3);
 
-    for(int i = 0; i < qtdJog; i++){
-        Jogador j;
-        
-        printf("\n---JOGADOR %d---\n", i+1);
-
-        cadastrarJogador(&j);
-        inicializarJogador(&j);
-
-        insereFila(&fila, j);
-
+    // 3. CONTANDO E EMBARALHANDO PERGUNTAS
+    int num_questions = 0;
+    for(int i = 0; i < MAX_PERGUNTAS; i++) {
+        if(baralho[i].unidade != 0) {
+            num_questions++;
+        }
     }
-    
-    Jogador temp;
-    int i = 0;
-    while(!filaVazia(&fila)){
-        removeFila(&fila, &temp);
-        printf("Jogador %d: %s\n", i+1, temp.nick);
+    embaralharPerguntas(baralho, num_questions, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3);
+
+    // 4. CADASTRO DE JOGADORES 
+    printf("BEM VINDO AO JOGO!\n\n");
+    criarJogadores(&fila); 
+
+    // 5. LOOP DO JOGO (Enquanto houver perguntas na unidade 1)
+    while(!pilha_vazia(&pilha_unidade1)) {
+        tp_jogador jogador;
+        if(!filaVazia(&fila)) {
+            removeFila(&fila, &jogador);
+            preparandoPergunta(&jogador, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3);
+            insereFila(&fila, jogador);
+        } else {
+            break; // Sai do loop se não houver jogadores
+        }
     }
+
+    // 6. RESULTADOS FINAIS
+    printf("\n--- FIM DE JOGO: RESULTADOS ---\n");
+    while(!filaVazia(&fila)) {
+        tp_jogador j;
+        removeFila(&fila, &j);
+        printf("\nJogador: %s\n", j.nick);
+        printf("Acertos: [F: %d | M: %d | D: %d]\n", j.acertos.facil, j.acertos.medio, j.acertos.dificil);
+        printf("Erros: %d\n", j.erros);
+    }
+
     return 0;
 }

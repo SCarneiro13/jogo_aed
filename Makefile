@@ -1,15 +1,15 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Iinclude
 
-SRC = src/main.c src/fila.c src/usuario.c
+SRC = $(wildcard src/*.c)
 OUT = build/programa
 
 all:
-	mkdir -p build
+	if not exist build mkdir build
 	$(CC) $(SRC) $(CFLAGS) -o $(OUT)
 
 run: all
-	./$(OUT)
+	$(OUT).exe
 
 clean:
 	rm -f $(OUT)

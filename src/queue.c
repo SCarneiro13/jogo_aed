@@ -1,7 +1,9 @@
-#include "fila.h"
+#include <stdio.h>
+
+#include "queue.h"
 
 void inicializaFila(tp_fila *f){
-    f->ini = f->fim = MAX-1;
+    f->ini = f->fim = MAX_FILA-1;
 }
 
 int filaVazia(tp_fila *f){
@@ -10,7 +12,7 @@ int filaVazia(tp_fila *f){
 }
 
 int proximo(int pos){
-    if (pos == MAX-1) return 0;
+    if (pos == MAX_FILA-1) return 0;
     return ++pos;
 }
 
@@ -32,4 +34,3 @@ int removeFila(tp_fila *f, tp_jogador *e){
     *e = f->item[f->ini];
     return 1;
 }
-
