@@ -9,29 +9,10 @@
 #define PERDER_TURNO        2
 #define REINICIAR_UNIDADE   3
 
-void aplicar_punicao(int id_punicao) {
-    switch (id_punicao) {
-        case VOLTAR_CASAS:
-            printf("[PUNIÇÃO] Azar! O jogador deve voltar 2 casas.\n");
-            // jogador->posicao -= 2;
-            break;
-            
-        case PERDER_TURNO:
-            printf("[PUNIÇÃO] Que pena! O jogador perdeu o próximo turno.\n");
-            // jogador->pula_vez = 1;
-            break;
-            
-        case REINICIAR_UNIDADE:
-            printf("[PUNIÇÃO] Alerta crítico! O jogador deve voltar para o início desta unidade.\n");
-            // Se unidade == 1 -> posicao = 1;
-            // Se unidade == 2 -> posicao = 16;
-            // Se unidade == 3 -> posicao = 31;
-            break;
-            
-        default:
-            // Caso seja SEM_PUNICAO (0) ou qualquer outro valor inesperado
-            break;
-    }
-}
+/**
+ * Declaração/Protótipo da função de punição.
+ * A implementação real está no arquivo punicao.c
+ */
+void aplicar_punicao(int id_punicao);
 
 #endif // PUNICAO_H
