@@ -39,7 +39,7 @@ void embaralharPerguntas(tp_pergunta *baralho, int num_questions, tp_baralho *un
 
 
 void preparandoPergunta(tp_jogador *j, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3){
-    int resposta; // Variavel vai ser usada para saber se jogador acertou ou errou.
+    int resposta = 0; // Variavel vai ser usada para saber se jogador acertou ou errou.
     
 
     printf("\n--- Pergunta para %s ---\n", j->nick);
@@ -90,7 +90,15 @@ int fazerPergunta(tp_baralho *uni){
     }
 
     printf("\nSua resposta (1-5): ");
-        scanf("%d", &resposta); // Coletando a resposta do jogador
+    fflush(stdout);
+
+    if(scanf("%d", &resposta) != 1){ // Coletando a resposta do jogador
+        int ch;
+
+        printf("\nEntrada invalida.\n");
+        while((ch = getchar()) != '\n' && ch != EOF);
+        return 0;
+    }
 
     if(resposta-1 == questao.resposta){ // Se a resposta for correta
         printf("\nPARABENS! Resposta correta.\n");
@@ -111,6 +119,6 @@ int fazerPergunta(tp_baralho *uni){
         };
     }else{ // Se a resposta for errada
         printf("\nPoxa... resposta incorreta.\n");
-        return 0;
     }
+    return 0;
 }

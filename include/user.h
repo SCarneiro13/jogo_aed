@@ -14,6 +14,7 @@ typedef struct{
     tp_space casaAtual;
     tp_acertos acertos;
     int erros;
+    int perdeuTurno;
 } tp_jogador;
 
 void cadastrarJogador(tp_jogador *j);

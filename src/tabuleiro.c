@@ -28,3 +28,22 @@ tp_listade *criar_caminho(){
     return lista;
 }
 
+int buscar_casa(tp_listade *tabuleiro, int posicao, tp_space *casa){
+    tp_no *atual = tabuleiro->ini;
+
+    while(atual != NULL){
+        if(atual->info.posicao == posicao){
+            *casa = atual->info;
+            return 1;
+        }
+
+        atual = atual->prox;
+    }
+
+    return 0;
+}
+
+int ultima_posicao(tp_listade *tabuleiro){
+    if(tabuleiro == NULL || tabuleiro->fim == NULL) return 0;
+    return tabuleiro->fim->info.posicao;
+}

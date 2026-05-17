@@ -5,6 +5,7 @@
 // Cadastra os nomes dos jogadores
 void cadastrarJogador(tp_jogador *j){
     printf("Nome do jogador: ");
+    fflush(stdout);
     scanf(" %[^\n]", j->nick);
 }
 
@@ -17,4 +18,5 @@ void inicializarJogador(tp_jogador *j){
     j->acertos.medio = 0;
     j->acertos.dificil = 0;
     j->erros = 0;
+    j->perdeuTurno = 0;
 }

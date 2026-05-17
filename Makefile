@@ -5,6 +5,7 @@ SRC = $(wildcard src/*.c)
 OUT = build/programa
 
 all:
+	-taskkill /F /IM programa.exe 2>nul
 	if not exist build mkdir build
 	$(CC) $(SRC) $(CFLAGS) -o $(OUT)
 
@@ -12,4 +13,5 @@ run: all
 	$(OUT).exe
 
 clean:
-	rm -f $(OUT)
+	-taskkill /F /IM programa.exe 2>nul
+	rm -f $(OUT).exe

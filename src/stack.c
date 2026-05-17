@@ -16,28 +16,28 @@ int pilha_cheia(tp_pilha *p){
 	return 0;
 }
 
-int push(tp_pilha *p, tp_item e){
+int push(tp_pilha *p, tp_item_pergunta e){
 	if(pilha_cheia(p) == 1){return 0;}
 	p->topo++;
 	p->pergunta[p->topo] = e;
 	return 1;
 }
 
-int pop(tp_pilha *p, tp_item *e){
+int pop(tp_pilha *p, tp_item_pergunta *e){
 	if(pilha_vazia(p)){return 0;}
 	*e = p->pergunta[p->topo];
 	p->topo--;
 	return 1;
 }
 
-int top(tp_pilha *p, tp_item *e){
+int top(tp_pilha *p, tp_item_pergunta *e){
 	if(pilha_vazia(p)){return 0;}
 	*e = p->pergunta[p->topo];
 	return 1;
 }
 
 void imprime_pilha(tp_pilha p){
-	tp_item e;
+	tp_item_pergunta e;
 	printf("\n");
 	while(!pilha_vazia(&p)){
 		pop(&p, &e);

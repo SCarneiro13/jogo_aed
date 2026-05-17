@@ -12,7 +12,7 @@ typedef struct{
     int unidade; // Unidade da pergunta.
     int dificuldade; // Nivel de dificuldade (De 0 a 2).
     char pergunta[500]; // A pergunta.
-    char alternativas[5][100]; // Alternativas -> 5 alternativas de 100 caracteres.
+    char alternativas[5][250]; // Alternativas -> 5 alternativas de ate 250 caracteres.
     int resposta; // Resposta correta (Indice de alternativas, vai de 0 a 4).
 } tp_pergunta;
 
