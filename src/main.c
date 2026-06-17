@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #include "quests.h"
 #include "stack.h"
@@ -11,6 +12,7 @@
 #include "tabuleiro.h"
 #include "movimentacao.h"
 #include "punicao.h"
+#include "vencedor.h" // <-- Novo include adicionado
 
 int main() {
     setvbuf(stdout, NULL, _IONBF, 0);
@@ -21,6 +23,7 @@ int main() {
 
     tp_listade *tabuleiro = criar_caminho();
     int fim_de_jogo = 0;
+    char nome_vencedor[50] = ""; // Para guardar quem ganhou para o fim do jogo
 
     tp_baralho pilha_unidade1, pilha_unidade2, pilha_unidade3;
     inicializa_pilha(&pilha_unidade1);
@@ -60,8 +63,10 @@ int main() {
         printf("%s tirou %d no dado.\n", jogador.nick, dado);
         moverJogador(&jogador, dado, tabuleiro);
 
-        if(jogador.casaAtual.posicao >= ultima_posicao(tabuleiro)){
-            printf("\n%s chegou ao fim do tabuleiro!\n", jogador.nick);
+        // <-- AQUI ENTRA A FUNÇÃO DE VENCEDOR -->
+        if(verificar_vencedor(&jogador, tabuleiro)) {
+            printf("\n%s chegou ao fim do tabuleiro e VENCEU O JOGO!\n", jogador.nick);
+            strcpy(nome_vencedor, jogador.nick); // Salva o nome do campeão
             fim_de_jogo = 1;
         } else if(jogador.casaAtual.tipo == 2){
             preparandoPergunta(&jogador, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3, baralho, MAX_PERGUNTAS);
@@ -74,7 +79,14 @@ int main() {
         insereFila(&fila, jogador);
     }
 
-    printf("\n--- FIM DE JOGO: RESULTADOS ---\n");
+    printf("\n===============================\n");
+    printf("   FIM DE JOGO: RESULTADOS\n");
+    printf("===============================\n");
+    
+    if(strlen(nome_vencedor) > 0) {
+        printf("\n*** O GRANDE CAMPEAO: %s ***\n", nome_vencedor);
+    }
+
     while(!filaVazia(&fila)) {
         tp_jogador j;
         removeFila(&fila, &j);
