@@ -38,7 +38,7 @@ int main() {
     printf("BEM VINDO AO JOGO!\n\n");
     criarJogadores(&fila);
 
-    while(!fim_de_jogo && (!pilha_vazia(&pilha_unidade1) || !pilha_vazia(&pilha_unidade2) || !pilha_vazia(&pilha_unidade3))) {
+    while(!fim_de_jogo) {
         tp_jogador jogador;
 
         if(filaVazia(&fila)) {
@@ -64,7 +64,7 @@ int main() {
             printf("\n%s chegou ao fim do tabuleiro!\n", jogador.nick);
             fim_de_jogo = 1;
         } else if(jogador.casaAtual.tipo == 2){
-            preparandoPergunta(&jogador, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3);
+            preparandoPergunta(&jogador, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3, baralho, MAX_PERGUNTAS);
         } else if(jogador.casaAtual.tipo == 1){
             aplicar_punicao(&jogador, sortear_punicao(), tabuleiro);
         } else {

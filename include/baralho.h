@@ -110,25 +110,88 @@ tp_pergunta baralho[MAX_PERGUNTAS] = { // Baralho com as perguntas.
     2 // c
 },
 {
-2,
-1,
-"Em uma estrutura de dados do tipo Fila implementada por meio de uma lista encadeada simples, em qual extremidade devem ocorrer as inserções e as remoções para garantir uma eficiência de tempo constante O(1)?",
-{"As inserções ocorrem no início da lista e as remoções ocorrem no fim da lista", "As inserções ocorrem no fim da lista e as remoções ocorrem no início da lista", "Tanto as inserções quanto as remoções devem ocorrer no início da lista", "Tanto as inserções quanto as remoções devem ocorrer no fim da lista", "As inserções e remoções podem ser feitas em qualquer extremidade aleatoriamente"},
-1 // b
+    2,
+    1,
+    "Em uma estrutura de dados do tipo Fila implementada por meio de uma lista encadeada simples, em qual extremidade devem ocorrer as inserções e as remoções para garantir uma eficiência de tempo constante O(1)?",
+    {"As inserções ocorrem no início da lista e as remoções ocorrem no fim da lista", "As inserções ocorrem no fim da lista e as remoções ocorrem no início da lista", "Tanto as inserções quanto as remoções devem ocorrer no início da lista", "Tanto as inserções quanto as remoções devem ocorrer no fim da lista", "As inserções e remoções podem ser feitas em qualquer extremidade aleatoriamente"},
+    1 // b
 },
 {
-2,
-2,
-"O algoritmo de busca binária possui uma alta eficiência computacional. Qual é a pré-condição obrigatória que a estrutura de dados deve atender para que este algoritmo funcione corretamente, e qual é a sua complexidade de tempo no pior caso?",
-{"Os dados devem estar indexados em posições contíguas e a complexidade é O(n log n)", "Os dados devem estar indexados e a complexidade de pior caso é O(n)", "Os dados devem estar obrigatoriamente ordenados e a complexidade de pior caso é O(log n)", "Os dados podem estar em qualquer ordem e a complexidade é O(log n)", "Os dados devem estar estruturados em uma árvore binária e a complexidade é O(n^2)"},
-2 // c
+    2,  
+    2,
+    "O algoritmo de busca binária possui uma alta eficiência computacional. Qual é a pré-condição obrigatória que a estrutura de dados deve atender para que este algoritmo funcione corretamente, e qual é a sua complexidade de tempo no pior caso?",
+    {"Os dados devem estar indexados em posições contíguas e a complexidade é O(n log n)", "Os dados devem estar indexados e a complexidade de pior caso é O(n)", "Os dados devem estar obrigatoriamente ordenados e a complexidade de pior caso é O(log n)", "Os dados podem estar em qualquer ordem e a complexidade é O(log n)", "Os dados devem estar estruturados em uma árvore binária e a complexidade é O(n^2)"},
+    2 // c
 },
 {
-2,
-2,
-"Considere que você deseja aplicar a lógica teórica da busca binária para encontrar um elemento em uma lista simplesmente encadeada (linear e não indexada) que já se encontra perfeitamente ordenada. Qual é a complexidade de tempo no pior caso para realizar essa busca?",
-{"A complexidade será O(log n), pois a lógica de divisões sucessivas da busca binária é mantida intacta", "A complexidade será O(n), pois o acesso ao elemento central a cada etapa exige o percorrimento sequencial dos nós", "A complexidade será O(n log n), devido à multiplicação do fator de divisão pelo tamanho total da lista encadeada", "A complexidade será O(1), porque a ordenação perfeita anula a necessidade de saltos na estrutura de nós", "A operação é impossível de ser calculada, gerando um erro de estouro de pilha (stack overflow)"},
-1 // b
+    2,
+    2,
+    "Considere que você deseja aplicar a lógica teórica da busca binária para encontrar um elemento em uma lista simplesmente encadeada (linear e não indexada) que já se encontra perfeitamente ordenada. Qual é a complexidade de tempo no pior caso para realizar essa busca?",
+    {"A complexidade será O(log n), pois a lógica de divisões sucessivas da busca binária é mantida intacta", "A complexidade será O(n), pois o acesso ao elemento central a cada etapa exige o percorrimento sequencial dos nós", "A complexidade será O(n log n), devido à multiplicação do fator de divisão pelo tamanho total da lista encadeada", "A complexidade será O(1), porque a ordenação perfeita anula a necessidade de saltos na estrutura de nós", "A operação é impossível de ser calculada, gerando um erro de estouro de pilha (stack overflow)"},
+    1 // b
+},
+{
+    3,
+    1,
+    "Uma árvore Trie (ou árvore de prefixos) é uma estrutura de dados de busca baseada em chaves que frequentemente representam strings. Qual é a principal característica arquitetural de uma Trie padrão que a diferencia de uma Árvore Binária de Busca tradicional?",
+    {"Cada nó possui obrigatoriamente no máximo dois filhos e armazena chaves numéricas inteiras de forma rigidamente balanceada", "Os nós não armazenam a chave completa; em vez disso, a chave é definida pela posição do nó na árvore, baseada no caminho percorrido a partir da raiz", "Os elementos são organizados por meio de funções de espalhamento (hash) diretamente nas páginas de memória folha da árvore", "Ela elimina completamente a necessidade de ponteiros ou referências de memória, utilizando exclusivamente indexação sequencial contígua", "A busca em uma Trie requer que a árvore esteja completamente balanceada por altura, gerando rotações complexas a cada inserção"},
+    1 // b
+},
+{    
+    3,
+    2,
+    "A árvore PATRICIA (Practical Algorithm to Retrieve Information Coded in Alphanumeric) é uma variação otimizada da árvore Trie padrão. Qual modificação estrutural a árvore PATRICIA introduz para economizar espaço de memória?",
+    {"Ela substitui todos os nós internos por listas encadeadas circulares, removendo completamente o conceito de hierarquia de prefixos", "Ela armazena os dados em uma tabela linear estática e utiliza busca binária recursiva para simular a correspondência dos prefixos", "Ela realiza a compressão de caminhos (path compression), agrupando nós internos sequenciais que possuem apenas um único filho em um único nó com rótulo de múltiplos caracteres", "Ela restringe o alfabeto estritamente a valores booleanos (0 e 1), forçando qualquer tipo de chave a se comportar como um número inteiro de 32 bits", "Ela transforma a árvore em um grafo direcionado acíclico onde nenhum nó pode ter mais do que um único descendente direto"},
+    2 // c
+},
+{   
+    3,
+    3,
+    "Considere o cenário de armazenar um dicionário esparso contendo poucas palavras, porém cada palavra possui um comprimento extremamente longo (L). Se compararmos o desempenho e o uso de memória entre uma Trie padrão e uma Árvore PATRICIA para esse cenário, qual será o comportamento correto das estruturas?",
+    {"Ambas gastarão exatamente a mesma quantidade de nós, pois o comprimento longo exige a mesma alocação de caracteres", "A busca na Árvore PATRICIA passará a ser O(N), onde N é o número total de palavras, tornando-a muito mais lenta que a Trie padrão", "A Árvore PATRICIA falhará ao processar chaves longas devido ao limite teórico rígido de caracteres que uma única string de nó compactado pode suportar", "A Trie padrão sofrerá com alto desperdício de memória criando O(L) nós por palavra, enquanto a Árvore PATRICIA limitará o número total de nós internos ao número de chaves e ramificações, garantindo maior eficiência de espaço", "A Trie padrão otimizará o espaço automaticamente reduzindo o comprimento L para um valor constante, enquanto a PATRICIA duplicará os nós de forma exponencial"},
+    3 // d
+},
+{   
+    3,
+    1,
+    "Ao realizar um percorrimento (travessia) em uma Árvore Binária de Busca (BST), qual estratégia de visitação de nós garante que as chaves sejam acessadas em ordem estritamente crescente?",
+    {"Percorrimento em pré-ordem (pre-order)", "Percorrimento em pós-ordem (post-order)", "Percorrimento em largura (BFS)", "Percorrimento em ordem simétrica ou em-ordem (in-order)", "Percorrimento por profundidade aleatório"},
+    3 // d
+},
+{   
+    3,
+    2,
+    "Uma árvore AVL é uma árvore binária de busca auto-balanceada. Como é definido o fator de balanceamento de um nó nesta estrutura e qual medida é tomada caso esse fator se torne inválido após uma inserção?",
+    {"O fator é a diferença entre o número total de nós à esquerda e à direita, e a árvore deve ser totalmente reconstruída se o fator sair do intervalo [-1, 1]", "O fator é a diferença entre as alturas das subárvores esquerda e direita, devendo estar no intervalo [-1, 1]; se violado, aplicam-se rotações (simples ou duplas) para rebalancear a árvore", "O fator representa a profundidade máxima da árvore a partir da raiz, e qualquer variação exige a inversão completa dos ponteiros dos nós", "O fator é a soma das alturas de ambas as subárvores, e sua violação causa a exclusão automática do último nó inserido", "O fator é determinado pela quantidade de nós folha da árvore, demandando uma busca linear para readequação dos ponteiros"},
+    1 // b
+},
+{   
+    3,
+    3,
+    "Se inserirmos uma sequência de n elementos já ordenados de forma crescente (por exemplo: 1, 2, 3, ..., n) em uma Árvore Binária de Busca (BST) padrão inicialmente vazia e em uma Árvore AVL também inicialmente vazia, qual será o impacto na complexidade de tempo do pior caso para a operação de busca em cada uma delas?",
+    {"A busca na BST padrão será O(log n) e na Árvore AVL será O(n), pois as rotações da AVL prejudicam o desempenho com dados ordenados", "Ambas as árvores manterão a complexidade de busca em O(log n), já que a ordenação prévia é a situação ideal para estruturas de árvores", "A BST padrão degenerará em uma estrutura linear (similar a uma lista), resultando em busca O(n), enquanto a Árvore AVL aplicará rotações para manter a altura controlada, garantindo busca O(log n)", "Ambas as árvores sofrerão uma falha crítica de estouro de pilha (stack overflow) devido à impossibilidade de processar elementos ordenados", "A BST padrão terá tempo de busca O(1) devido ao encadeamento simples dos nós e a Árvore AVL terá tempo de busca O(n log n)"},
+    2 // c 
+},
+{   
+    3,
+    1,
+    "Qual é a complexidade de tempo esperada (caso médio) para as operações de inserção, remoção e busca de um elemento em uma Tabela Hash bem dimensionada e que utiliza uma função de espalhamento eficiente?",
+    {"O(n)", "O(1)", "O(log n)", "O(n log n)", "O(n^2)"},
+    1 // b
+},
+{   
+    3,
+    2,
+    "No método de tratamento de colisões por endereçamento aberto conhecido como Sondagem Linear (Linear Probing), qual fenômeno negativo tende a ocorrer conforme o fator de carga da tabela aumenta, prejudicando severamente o desempenho das operações de busca?",
+    {"Fragmentação externa de memória por desalocação estática", "Dispersão caótica de ponteiros, que invalida o cálculo matemático do índice original", "Agrupamento primário (primary clustering), onde chaves colididas formam longos blocos sequenciais de posições ocupadas no vetor", "Encadeamento infinito de subchaves dentro do mesmo slot", "Transformação automática e obrigatória da tabela em uma árvore AVL de profundidade n"},
+    2 // c
+},
+{   
+    3,
+    3,
+    "Em uma implementação de Tabela Hash que utiliza encadeamento externo (Separate Chaining) por meio de listas encadeadas simples, qual é a complexidade de tempo no pior caso absoluto para a operação de busca e qual estratégia moderna de otimização estrutural é adotada para mitigar esse cenário específico?",
+    {"A complexidade é O(1) e a estratégia consiste na aplicação de uma segunda função hash (double hashing) para fundir as listas de buckets diferentes", "A complexidade é O(log n) e a estratégia consiste na conversão automática da tabela inteira em um vetor dinâmico contíguo e ordenado", "A complexidade é O(n^2) e a estratégia exige a reinicialização completa da tabela e o descarte dos elementos mais antigos para liberar memória", "A complexidade é O(n) e a estratégia (adotada por linguagens como o Java 8+) consiste em converter a lista encadeada do bucket em uma árvore de busca balanceada (como a Rubro-Negra) quando o número de colisões ali supera um determinado limite, reduzindo o pior caso de busca para O(log n)", "A complexidade é O(n log n) e a estratégia envolve ordenar a lista encadeada interna usando o algoritmo QuickSort a cada inserção realizada"},
+    3 // d
 }
 };
 
