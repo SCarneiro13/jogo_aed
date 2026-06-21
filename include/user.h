@@ -1,7 +1,8 @@
 #ifndef USER_H
 #define USER_H
-
 #include "space.h"
+
+#define MAX_PERG_JOGADOR 27
 
 typedef struct{
     int dificil;
@@ -14,14 +15,15 @@ typedef struct{
     tp_space casaAtual;
     tp_acertos acertos;
     int erros;
+    int perdeuTurno;
+
+    // Histórico de perguntas (ids referentes ao array banco_completo/baralho)
+    int id_certas[MAX_PERG_JOGADOR];
+    int qtd_certas;
+    int id_erradas[MAX_PERG_JOGADOR];
+    int qtd_erradas;
 } tp_jogador;
 
 void cadastrarJogador(tp_jogador *j);
 void inicializarJogador(tp_jogador *j);
-
-typedef struct{
-    char nome[50];
-    int posicao;
-} tp_jogador;
-
 #endif
