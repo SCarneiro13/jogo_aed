@@ -1,16 +1,85 @@
-#include <stdio.h>
+﻿#include <stdio.h>
+#include <stdlib.h>
 #include "user.h"
 #include "queue.h"
 
-// Cadastra os nomes dos jogadores
-void cadastrarJogador(tp_jogador *j){
+static void liberar_no(TipoApontador *no) {
+    if (*no == NULL)
+        return;
+
+    for (int i = 0; i <= (*no)->n; i++)
+        liberar_no(&(*no)->p[i]);
+
+    free(*no);
+    *no = NULL;
+}
+
+static void imprimir_em_ordem(const TipoApontador no) {
+    if (no == NULL)
+        return;
+
+    for (int i = 0; i <= no->n; i++) {
+        if (no->p[i] != NULL)
+            imprimir_em_ordem(no->p[i]);
+
+        if (i < no->n) {
+            const TipoRegistro *r = &no->r[i];
+            const char *texto = (r->Frequencia == 1) ? "vez" : "vezes";
+            printf("Casa %ld: %d %s.\n", (long)r->Chave, r->Frequencia, texto);
+        }
+    }
+}
+
+void inicializa_registro(tp_registro_casas *registro, int total_casas) {
+    if (registro == NULL)
+        return;
+
+    Inicializa(&registro->raiz);
+    registro->total_casas = total_casas;
+}
+
+void registrar_casa(tp_registro_casas *registro, int casa) {
+    if (registro == NULL || casa < 1 || casa > registro->total_casas)
+        return;
+
+    TipoRegistro atual;
+    atual.Chave = casa;
+    atual.Frequencia = 0;
+
+    if (Pesquisa(&atual, registro->raiz)) {
+        TipoRegistro nova;
+        nova.Chave = atual.Chave;
+        nova.Frequencia = atual.Frequencia + 1;
+        Retira(atual.Chave, &registro->raiz);
+        Insere(nova, &registro->raiz);
+    } else {
+        atual.Frequencia = 1;
+        Insere(atual, &registro->raiz);
+    }
+}
+
+void liberar_registro(tp_registro_casas *registro) {
+    if (registro == NULL)
+        return;
+
+    liberar_no(&registro->raiz);
+    registro->total_casas = 0;
+}
+
+void imprimir_resumo_casas(const tp_registro_casas *registro) {
+    if (registro == NULL)
+        return;
+
+    imprimir_em_ordem(registro->raiz);
+}
+
+void cadastrarJogador(tp_jogador *j) {
     printf("Nome do jogador: ");
     fflush(stdout);
     scanf(" %[^\n]", j->nick);
 }
 
-// Inicializa os dados do jogador
-void inicializarJogador(tp_jogador *j){
+void inicializarJogador(tp_jogador *j) {
     j->casaAtual.posicao = 0;
     j->casaAtual.tipo = 1;
     j->casaAtual.unidade = 1;
@@ -19,4 +88,5 @@ void inicializarJogador(tp_jogador *j){
     j->acertos.dificil = 0;
     j->erros = 0;
     j->perdeuTurno = 0;
+    inicializa_registro(&j->visitas, 45);
 }
