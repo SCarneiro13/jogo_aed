@@ -17,6 +17,7 @@ typedef struct {
 
 typedef struct {
     char nick[30];
+    int numero;
     tp_space casaAtual;
     tp_acertos acertos;
     int erros;
@@ -28,7 +29,7 @@ void inicializa_registro(tp_registro_casas *registro, int total_casas);
 void registrar_casa(tp_registro_casas *registro, int casa);
 void liberar_registro(tp_registro_casas *registro);
 void imprimir_resumo_casas(const tp_registro_casas *registro);
-void cadastrarJogador(tp_jogador *j);
+void cadastrarJogador(tp_jogador *j, int n);
 void inicializarJogador(tp_jogador *j);
 
 #endif

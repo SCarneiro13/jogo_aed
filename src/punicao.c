@@ -9,20 +9,47 @@ int sortear_punicao(){
 void aplicar_punicao(tp_jogador *j, int id_punicao, tp_listade *tabuleiro) {
     switch (id_punicao) {
         case VOLTAR_CASAS:
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n");
+            printf("██████╗ ██╗   ██╗███╗   ██╗██╗ ██████╗  █████╗  ██████╗ \n");
+            printf("██╔══██╗██║   ██║████╗  ██║██║██╔════╝ ██╔══██╗██╔═══██╗\n");
+            printf("██████╔╝██║   ██║██╔██╗ ██║██║██║      ███████║██║   ██║\n");
+            printf("██╔═══╝ ██║   ██║██║╚██╗██║██║██║      ██╔══██║██║   ██║\n");
+            printf("██║     ╚██████╔╝██║ ╚████║██║╚██████╗ ██║  ██║╚██████╔╝\n");
+            printf("╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ \n");
             printf("[PUNICAO] %s voltou 2 casas.\n", j->nick);
             moverJogador(j, -2, tabuleiro);
+            while(getchar() != '\n');
+            getchar();
             break;
 
         case PERDER_TURNO:
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n");
+            printf("██████╗ ██╗   ██╗███╗   ██╗██╗ ██████╗  █████╗  ██████╗ \n");
+            printf("██╔══██╗██║   ██║████╗  ██║██║██╔════╝ ██╔══██╗██╔═══██╗\n");
+            printf("██████╔╝██║   ██║██╔██╗ ██║██║██║      ███████║██║   ██║\n");
+            printf("██╔═══╝ ██║   ██║██║╚██╗██║██║██║      ██╔══██║██║   ██║\n");
+            printf("██║     ╚██████╔╝██║ ╚████║██║╚██████╗ ██║  ██║╚██████╔╝\n");
+            printf("╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ \n");
             printf("[PUNICAO] %s perdeu o proximo turno.\n", j->nick);
             j->perdeuTurno = 1;
+            while(getchar() != '\n');
+            getchar();
             break;
 
         case REINICIAR_UNIDADE:
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n");
+            printf("██████╗ ██╗   ██╗███╗   ██╗██╗ ██████╗  █████╗  ██████╗ \n");
+            printf("██╔══██╗██║   ██║████╗  ██║██║██╔════╝ ██╔══██╗██╔═══██╗\n");
+            printf("██████╔╝██║   ██║██╔██╗ ██║██║██║      ███████║██║   ██║\n");
+            printf("██╔═══╝ ██║   ██║██║╚██╗██║██║██║      ██╔══██║██║   ██║\n");
+            printf("██║     ╚██████╔╝██║ ╚████║██║╚██████╗ ██║  ██║╚██████╔╝\n");
+            printf("╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ \n");
             printf("[PUNICAO]  %s voltou para o inicio desta unidade.\n", j->nick);
             if(j->casaAtual.unidade == 1) moverJogadorPara(j, 1, tabuleiro);
             else if(j->casaAtual.unidade == 2) moverJogadorPara(j, 16, tabuleiro);
             else moverJogadorPara(j, 31, tabuleiro);
+            while(getchar() != '\n');
+            getchar();
             break;
 
         default:

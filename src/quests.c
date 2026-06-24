@@ -41,8 +41,19 @@ void embaralharPerguntas(tp_pergunta *baralho, int num_questions, tp_baralho *un
 void preparandoPergunta(tp_jogador *j, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3, tp_pergunta *banco_completo, int nmr_questoes){
     int resposta = 0; // Variavel vai ser usada para saber se jogador acertou ou errou.
     
+    printf("\n\n\n\n\n");
+    
+    printf("╔═══════════════════════════════════════════════════════════════════════╗\n");
+    printf("║                                                                       ║\n");
+    printf("║ ██████╗ ███████╗██████╗  ██████╗ ██╗   ██╗███╗   ██╗████████╗ █████╗  ║\n");
+    printf("║ ██╔══██╗██╔════╝██╔══██╗██╔════╝ ██║   ██║████╗  ██║╚══██╔══╝██╔══██╗ ║\n");
+    printf("║ ██████╔╝█████╗  ██████╔╝██║  ███╗██║   ██║██╔██╗ ██║   ██║   ███████║ ║\n");
+    printf("║ ██╔═══╝ ██╔══╝  ██╔══██╗██║   ██║██║   ██║██║╚██╗██║   ██║   ██╔══██║ ║\n");
+    printf("║ ██║     ███████╗██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║   ██║   ██║  ██║ ║\n");
+    printf("║ ╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝ ║\n");
+    printf("║                                                                       ║\n");
+    printf("╚═══════════════════════════════════════════════════════════════════════╝\n");
 
-    printf("\n--- Pergunta para %s ---\n", j->nick);
     switch (j->casaAtual.unidade) // Pegando a unidade da casa atual do jogador.
     {
     case 1: // Caso seja a unidade 1.
@@ -89,7 +100,7 @@ int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes
     pop(uni, &questao); // Pegando uma questão do topo do baralho.
     int resposta; // Variavel vai ser usada para saber se jogador acertou ou errou.
 
-    printf("Pergunta: %s\n\n", questao.pergunta); // Fazendo a pergunta.
+    printf("\n\nPergunta: %s\n", questao.pergunta); // Fazendo a pergunta.
 
     for(int i = 0; i < 5; i++){ // Mostrando as alternativas.
         printf("%d) %s\n", i+1, questao.alternativas[i]);
@@ -106,8 +117,34 @@ int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes
         return 0;
     }
 
-    if(resposta-1 == questao.resposta){ // Se a resposta for correta
-        printf("\nPARABENS! Resposta correta.\n");
+    printf("\n\n\n\n\n");
+    
+    printf(".....................................................................\n");
+    printf("██████╗ ███████╗███████╗██████╗  ██████╗ ███████╗████████╗ █████╗ ...\n");
+    printf("██╔══██╗██╔════╝██╔════╝██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝██╔══██╗...\n");
+    printf("██████╔╝█████╗  ███████╗██████╔╝██║   ██║███████╗   ██║   ███████║...\n");
+    printf("██╔══██╗██╔══╝  ╚════██║██╔═══╝ ██║   ██║╚════██║   ██║   ██╔══██║...\n");
+    printf("██║  ██║███████╗███████║██║     ╚██████╔╝███████║   ██║   ██║  ██║...\n");
+    printf("╚═╝  ╚═╝╚══════╝╚══════╝╚═╝      ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝...\n");
+    printf(".....................................................................\n");
+
+    if(resposta-1 == questao.resposta){ // Se a resposta for correta.
+        printf(" ██████╗ ██████╗ ██████╗ ██████╗ ███████╗████████╗ █████╗ ...........\n");
+        printf("██╔════╝██╔═══██╗██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██╔══██╗...........\n");
+        printf("██║     ██║   ██║██████╔╝██████╔╝█████╗     ██║   ███████║...........\n");
+        printf("██║     ██║   ██║██╔══██╗██╔══██╗██╔══╝     ██║   ██╔══██║...........\n");
+        printf("╚██████╗╚██████╔╝██║  ██║██║  ██║███████╗   ██║   ██║  ██║...........\n");
+        printf(" ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝...........\n");
+        printf(".....................................................................\n");
+        printf("██████╗  █████╗ ██████╗  █████╗ ██████╗ ███████╗███╗   ██╗███████╗██╗\n");
+        printf("██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝████╗  ██║██╔════╝██║\n");
+        printf("██████╔╝███████║██████╔╝███████║██████╔╝█████╗  ██╔██╗ ██║███████╗██║\n");
+        printf("██╔═══╝ ██╔══██║██╔══██╗██╔══██║██╔══██╗██╔══╝  ██║╚██╗██║╚════██║╚═╝\n");
+        printf("██║     ██║  ██║██║  ██║██║  ██║██████╔╝███████╗██║ ╚████║███████║██╗\n");
+        printf("╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝\n");
+        printf(".....................................................................\n");
+        while(getchar() != '\n');
+        getchar();
         switch (questao.dificuldade) // Verificando a dificuldade da questão.
         {
         case 0: 
@@ -120,11 +157,19 @@ int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes
             return 3;
             break;
         default:
-            printf("Error. \nQuestão com dificuldade indeterminada");
+            printf("ERRO! Questão sem dificuldade definida");
             break;
         };
     }else{ // Se a resposta for errada
-        printf("\nPoxa... resposta incorreta.\n");
+            printf("███████╗██████╗ ██████╗  █████╗ ██████╗  █████╗ .....................\n");
+            printf("██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗.....................\n");
+            printf("█████╗  ██████╔╝██████╔╝███████║██║  ██║███████║.....................\n");
+            printf("██╔══╝  ██╔══██╗██╔══██╗██╔══██║██║  ██║██╔══██║.....................\n");
+            printf("███████╗██║  ██║██║  ██║██║  ██║██████╔╝██║  ██║.....................\n");
+            printf("╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝.....................\n");
+            printf(".....................................................................\n");
+        while(getchar() != '\n');
+        getchar();
     }
     return 0;
 }
