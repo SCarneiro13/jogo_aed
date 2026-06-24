@@ -126,6 +126,7 @@ int main() {
     inicializa_pilha(&pilha_unidade2);
     inicializa_pilha(&pilha_unidade3);
 
+    
     int num_questions = 0;
     for(int i = 0; i < MAX_PERGUNTAS; i++) {
         if(baralho[i].unidade != 0) {
@@ -133,6 +134,14 @@ int main() {
         }
     }
     embaralharPerguntas(baralho, num_questions, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3);
+    
+    FILE *arq_init = fopen("historico_respostas.csv", "w");
+    if(arq_init != NULL){
+        fprintf(arq_init, "turma;nome_jogador;id_pergunta;unidade;tema;subtema;dificuldade;resposta_jogador;resposta_correta;resultado\n");
+        fclose(arq_init);
+    }
+    
+    gerarArquivoReferencia(baralho, num_questions);
 
     int opcaoInicial;
     do{
@@ -185,7 +194,7 @@ int main() {
             strcpy(nome_vencedor, jogador.nick); 
             fim_de_jogo = 1;
         } else if(jogador.casaAtual.tipo == 2){
-            preparandoPergunta(&jogador, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3, baralho, MAX_PERGUNTAS);
+            preparandoPergunta(&jogador, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3, baralho, num_questions);
         } else if(jogador.casaAtual.tipo == 1){
             aplicar_punicao(&jogador, sortear_punicao(), tabuleiro);
         } else {
