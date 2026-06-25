@@ -3,6 +3,7 @@
 #define MAX_PERGUNTAS 27
 #include "space.h"
 #include "user.h"
+
 // A pergunta deve ser relacionada com sua unidade e ter um nível de dificuldade.
 typedef struct{
     int id; // Identificador único da pergunta (índice em banco_completo).
