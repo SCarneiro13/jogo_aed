@@ -1,0 +1,9 @@
+turma;nome_jogador;id_pergunta;unidade;tema;subtema;dificuldade;resposta_jogador;resposta_correta;resultado
+AED-2026.1-M;Gabriel;P006;1;Fila;Algoritmos;Medio;C;C;Acertou
+AED-2026.1-M;Samuel;P009;1;Pilha;Estruturas Auxiliares;Dificil;B;B;Acertou
+AED-2026.1-M;Gabriel;P002;1;Pilha;LIFO;Facil;C;C;Acertou
+AED-2026.1-M;Gabriel;P012;2;Lista Encadeada;Memory Leak;Dificil;B;A;Errou
+AED-2026.1-M;Samuel;P010;2;Alocacao Dinamica;Malloc vs Estatico;Medio;C;C;Acertou
+AED-2026.1-M;Gabriel;P021;3;Busca;Trie vs PATRICIA;Dificil;D;D;Acertou
+AED-2026.1-M;Samuel;P018;2;Busca;Busca em Lista;Dificil;A;B;Errou
+AED-2026.1-M;Gabriel;P024;3;Arvore AVL;BST vs AVL;Dificil;A;C;Errou

@@ -1,0 +1,28 @@
+id_pergunta;unidade;tema;dificuldade;enunciado
+P004;1;Pilha;Medio;Considere uma pilha inicialmente vazia. Apos executar a sequencia: push(&p, 'A'); push(&p, 'B'); pop(&p, &e); push(&p, 'C'); Qual sera o elemento no topo da pilha ao final?
+P008;1;Fila;Dificil;Dada a funcao void imprimeFila(tp_fila f) que recebe a fila por valor e utiliza removeFila, o que acontece com a fila original apos a chamada?
+P019;3;Busca;Medio;Uma árvore Trie (ou árvore de prefixos) é uma estrutura de dados de busca baseada em chaves que frequentemente representam strings. Qual é a principal característica arquitetural de uma Trie padrão que a diferencia de uma Árvore Binária de Busca tradicional?
+P014;2;Ordenacao;Dificil;Sobre algoritmos de ordenação estáveis, qual alternativa descreve corretamente sua principal characteristic?
+P011;2;Lista Encadeada;Dificil;Em uma lista simplesmente encadeada, para remover o primeiro nó da lista (denotado por 'L'), qual a sequência lógica correta?
+P013;2;Ordenacao;Medio;Sobre o algoritmo Quick Sort, qual situação leva ao pior caso de desempenho quando o pivô escolhido é sempre o primeiro elemento?
+P027;3;Complexidade;Dificil;Em uma implementação de Tabela Hash que utiliza encadeamento externo (Separate Chaining) por meio de listas encadeadas simples, qual é a complexidade de tempo no pior caso absoluto para a operação de busca e qual estratégia moderna de otimização estrutural é adotada para mitigar esse cenário específico?
+P026;3;Complexidade;Dificil;No método de tratamento de colisões por endereçamento aberto conhecido como Sondagem Linear (Linear Probing), qual fenômeno negativo tende a ocorrer conforme o fator de carga da tabela aumenta, prejudicando severamente o desempenho das operações de busca?
+P017;2;Busca;Dificil;O algoritmo de busca binária possui uma alta eficiência computacional. Qual é a pré-condição obrigatória que a estrutura de dados deve atender para que este algoritmo funcione corretamente, e qual é a sua complexidade de tempo no pior caso?
+P016;2;Fila;Medio;Em uma estrutura de dados do tipo Fila implementada por meio de uma lista encadeada simples, em qual extremidade devem ocorrer as inserções e as remoções para garantir uma eficiência de tempo constante O(1)?
+P001;1;Ponteiros;Facil;Sobre tipos primitivos e manipulacao de caracteres em C, assinale a alternativa correta: Qual das atribuicoes e semanticamente correta para uma variavel do tipo char?
+P022;3;Arvore Binaria;Medio;Ao realizar um percorrimento (travessia) em uma Árvore Binária de Busca (BST), qual estratégia de visitação de nós garante que as chaves sejam acessadas em ordem estritamente crescente?
+P025;3;Complexidade;Medio;Qual é a complexidade de tempo esperada (caso médio) para as operações de inserção, remoção e busca de um elemento em uma Tabela Hash bem dimensionada e que utiliza uma função de espalhamento eficiente?
+P020;3;Busca;Dificil;A árvore PATRICIA (Practical Algorithm to Retrieve Information Coded in Alphanumeric) é uma variação otimizada da árvore Trie padrão. Qual modificação estrutural a árvore PATRICIA introduz para economizar espaço de memória?
+P015;2;Ordenacao;Dificil;Considere um Merge Sort aplicado em um vetor de tamanho n. Qual é a principal razão para sua complexidade ser O(n log n)?
+P018;2;Busca;Dificil;Considere que você deseja aplicar a lógica teórica da busca binária para encontrar um elemento em uma lista simplesmente encadeada (linear e não indexada) que já se encontra perfeitamente ordenada. Qual é a complexidade de tempo no pior caso para realizar essa busca?
+P010;2;Alocacao Dinamica;Medio;Sobre a alocação de memória em C, qual a principal diferença entre a alocação estática (vetores comuns) e a dinâmica (malloc)?
+P003;1;Fila;Facil;Em uma implementacao estatica de fila utilizando vetor, a funcao inicializaFila(tp_fila *f) tem como principal objetivo:
+P005;1;Fila;Medio;Analise o trecho: for (int i = 0; i < strlen(f); i++) - Sabendo que f e do tipo tp_fila *, identifique o problema:
+P007;1;Fila;Dificil;Considere a funcao int removeFila(tp_fila *f, tp_item *e); e as variaveis: tp_fila fila; tp_item x; tp_item *px = &x; Assinale a alternativa em que as duas chamadas estejam coerentes:
+P002;1;Pilha;Facil;Em relacao ao comportamento da estrutura de dados Pilha (Stack), assinale a alternativa correta:
+P023;3;Arvore AVL;Dificil;Uma árvore AVL é uma árvore binária de busca auto-balanceada. Como é definido o fator de balanceamento de um nó nesta estrutura e qual medida é tomada caso esse fator se torne inválido após uma inserção?
+P024;3;Arvore AVL;Dificil;Se inserirmos uma sequência de n elementos já ordenados de forma crescente (por exemplo: 1, 2, 3, ..., n) em uma Árvore Binária de Busca (BST) padrão inicialmente vazia e em uma Árvore AVL também inicialmente vazia, qual será o impacto na complexidade de tempo do pior caso para a operação de busca em cada uma delas?
+P012;2;Lista Encadeada;Dificil;Considere uma lista encadeada onde cada nó tem um ponteiro 'prox'. O que acontece se executarmos 'atual->prox = atual->prox->prox' em uma lista com 3 elementos, sendo 'atual' o primeiro elemento?
+P021;3;Busca;Dificil;Considere o cenário de armazenar um dicionário esparso contendo poucas palavras, porém cada palavra possui um comprimento extremamente longo (L). Se compararmos o desempenho e o uso de memória entre uma Trie padrão e uma Árvore PATRICIA para esse cenário, qual será o comportamento correto das estruturas?
+P009;1;Pilha;Dificil;Ao utilizar uma pilha como estrutura auxiliar para reorganizar uma fila, qual limitacao fundamental deve ser considerada?
+P006;1;Fila;Medio;Ao tentar agrupar elements iguais em uma fila (por exemplo, todos os 'V' juntos), utilizando apenas uma pilha auxiliar, qual estrategia e mais adequada?

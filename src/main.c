@@ -47,6 +47,16 @@ int main() {
     }
     embaralharPerguntas(baralho, num_questions, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3);
 
+
+    FILE *arq_init = fopen("historico_respostas.csv", "w");
+    if(arq_init != NULL){
+        fprintf(arq_init, "turma;nome_jogador;id_pergunta;unidade;tema;subtema;dificuldade;resposta_jogador;resposta_correta;resultado\n");
+        fclose(arq_init);
+    }
+    
+    gerarArquivoReferencia(baralho, num_questions);
+
+
     int opcaoInicial;
     do{
         mostrar_menu();
