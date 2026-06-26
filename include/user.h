@@ -23,6 +23,11 @@ typedef struct {
     int erros;
     int perdeuTurno;
     tp_registro_casas visitas;
+
+    char id_certas[50][10]; // Guarda as strings de ID das questões acertadas
+    int qtd_certas; // Contador de questões acertadas
+    char id_erradas[50][10]; // Guarda as strings de ID das questões erradas 
+    int qtd_erradas; // Contador de questões erradas
 } tp_jogador;
 
 void inicializa_registro(tp_registro_casas *registro, int total_casas);

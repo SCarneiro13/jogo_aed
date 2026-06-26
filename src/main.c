@@ -4,6 +4,7 @@
 #include <string.h>
 #include <windows.h>
 
+#include "ranking.h"
 #include "quests.h"
 #include "stack.h"
 #include "queue.h"
@@ -101,7 +102,7 @@ int main() {
             strcpy(nome_vencedor, jogador.nick); 
             fim_de_jogo = 1;
         } else if(jogador.casaAtual.tipo == 2){
-            preparandoPergunta(&jogador, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3, baralho, MAX_PERGUNTAS);
+            preparandoPergunta(&jogador, &pilha_unidade1, &pilha_unidade2, &pilha_unidade3, baralho, num_questions);
         } else if(jogador.casaAtual.tipo == 1){
             aplicar_punicao(&jogador, sortear_punicao(), tabuleiro);
         } else {
@@ -123,7 +124,11 @@ int main() {
         printf("\nJogador: %s\n", j.nick);
         printf("Acertos: [F: %d | M: %d | D: %d]\n", j.acertos.facil, j.acertos.medio, j.acertos.dificil);
         printf("Erros: %d\n", j.erros);
+
+        salvar_pontuacao(&j);
     }
+
+    exibir_ranking(baralho, num_questions);
 
     printf("\nResumo geral de casas visitadas:\n");
     imprimir_resumo_casas(&resumo_geral);

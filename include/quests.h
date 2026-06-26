@@ -32,7 +32,7 @@ void embaralharPerguntas(tp_pergunta *baralho, int num_questions, tp_baralho *un
 
 void preparandoPergunta(tp_jogador *jogador, tp_baralho *uni1, tp_baralho *uni2, tp_baralho *uni3, tp_pergunta *banco_completo, int nmr_questoes); // Função para preparar a pergunta.
 
-int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes, int unidade, char *nome_jogador); // Função para realizar a pergunta.
+int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes, int unidade, tp_jogador *j); // Função para realizar a pergunta.
 
 void reporPerguntas(int unidade, tp_pergunta *banco_completo, int nmr_questoes, tp_baralho *uni_atual); // Função para repor as perguntas 
 

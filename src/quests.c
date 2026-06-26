@@ -57,13 +57,13 @@ void preparandoPergunta(tp_jogador *j, tp_baralho *uni1, tp_baralho *uni2, tp_ba
     switch (j->casaAtual.unidade) // Pegando a unidade da casa atual do jogador.
     {
     case 1: // Caso seja a unidade 1.
-        resposta = fazerPergunta(uni1, banco_completo, nmr_questoes, 1, j->nick);
+        resposta = fazerPergunta(uni1, banco_completo, nmr_questoes, 1, j);
         break;
     case 2: // Caso seja a unidade 2.
-        resposta = fazerPergunta(uni2, banco_completo, nmr_questoes, 2, j->nick);
+        resposta = fazerPergunta(uni2, banco_completo, nmr_questoes, 2, j);
         break;
     case 3: // Caso seja a unidade 3.
-        resposta = fazerPergunta(uni3, banco_completo, nmr_questoes, 3, j->nick);
+        resposta = fazerPergunta(uni3, banco_completo, nmr_questoes, 3, j);
         break;
     default: // Caso a unidade não seja valida.
         printf("Error. \nCasa indeterminda");
@@ -89,13 +89,13 @@ void preparandoPergunta(tp_jogador *j, tp_baralho *uni1, tp_baralho *uni2, tp_ba
 
 
 
-int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes, int unidade, char *nome_jogador){
+int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes, int unidade, tp_jogador *j){
 
     if(uni->topo <= 0){
         printf("\n[AVISO]: As perguntas da unidade %d acabaram! Reorganizando o baralho de perguntas...\n", unidade);
         reporPerguntas(unidade, banco_completo, nmr_questoes, uni);
     
-        return fazerPergunta(uni, banco_completo, nmr_questoes, unidade, nome_jogador);
+        return fazerPergunta(uni, banco_completo, nmr_questoes, unidade, j);
     }
 
     tp_pergunta questao;
@@ -117,7 +117,13 @@ int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes
         printf("\nEntrada invalida.\n");
         while((ch = getchar()) != '\n' && ch != EOF);
 
-        salvarHistoricoResposta(nome_jogador, questao, -1, "Errou");
+        if (j->qtd_erradas < 50) {
+            strncpy(j->id_erradas[j->qtd_erradas], questao.id, 9);
+            j->id_erradas[j->qtd_erradas][9] = '\0';
+            j->qtd_erradas++;
+        }
+
+        salvarHistoricoResposta(j->nick, questao, -1, "Errou");
         return 0;
     }
 
@@ -150,7 +156,13 @@ int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes
         while(getchar() != '\n');
         getchar();
 
-        salvarHistoricoResposta(nome_jogador, questao, resposta-1, "Acertou");
+        if (j->qtd_certas < 50) {
+            strncpy(j->id_certas[j->qtd_certas], questao.id, 9);
+            j->id_certas[j->qtd_certas][9] = '\0';
+            j->qtd_certas++;
+        }
+
+        salvarHistoricoResposta(j->nick, questao, resposta-1, "Acertou");
 
         switch (questao.dificuldade) // Verificando a dificuldade da questão.
         {
@@ -176,7 +188,13 @@ int fazerPergunta(tp_baralho *uni, tp_pergunta *banco_completo, int nmr_questoes
             printf("╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝.....................\n");
             printf(".....................................................................\n");
         
-        salvarHistoricoResposta(nome_jogador, questao, resposta-1, "Errou");
+        if (j->qtd_erradas < 50) {
+            strncpy(j->id_erradas[j->qtd_erradas], questao.id, 9);
+            j->id_erradas[j->qtd_erradas][9] = '\0';
+            j->qtd_erradas++;
+        }
+
+        salvarHistoricoResposta(j->nick, questao, resposta-1, "Errou");
 
         while(getchar() != '\n');
         getchar();
